@@ -1,4 +1,4 @@
-﻿using Challenge;
+﻿using Rules;
 
 namespace Run
 {

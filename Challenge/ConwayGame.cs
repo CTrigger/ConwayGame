@@ -1,4 +1,4 @@
-﻿namespace Challenge
+﻿namespace Rules
 {
     public class ConwayGame
     {
@@ -41,7 +41,7 @@
                 //Survival|Revive
                 case 3:
                     return true;
-                //under population
+                //under | over population
                 case 0:
                 case 1:
                 default:
