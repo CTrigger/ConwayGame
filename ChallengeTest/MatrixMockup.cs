@@ -23,6 +23,17 @@
             {false, true,  false},
             {false, false, false},
         };
+
+        public static bool[,] Matrix_7x7 =
+        {
+            {true , true , false, false, false, true , true },
+            {false, true , false, false, false, false, false},
+            {false, false, true , false, false, true , false},
+            {false, false, true , true,  false, false, false},
+            {false, true , false, false, false, false, true },
+            {true , false, false, false, false, true , false},
+            {false, true , false, true , false, true , false},
+        };
         public static IEnumerable<TestCaseData> Matrix3x3_0_1()
         {
             yield return new TestCaseData(Matrix_3x3_A0, Matrix_3x3_A1);

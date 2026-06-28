@@ -46,5 +46,39 @@ namespace RulesTest
 
 
         }
+
+
+        [Test]
+        public void Run()
+        {
+            ConwayGame game = new ConwayGame(MatrixMockup.Matrix_7x7);
+            bool[,] prev;
+            string gameResult = string.Empty;
+            do
+            {
+                prev = (bool[,])game.table.Clone();
+                gameResult += Print(game.table);
+                game.Next();
+
+            } while (!game.table.Cast<bool>().SequenceEqual(prev.Cast<bool>()));
+
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "result.txt");
+            File.WriteAllLines(
+                path,
+                gameResult.Split(Environment.NewLine));
+            TestContext.WriteLine(path);
+
+        }
+        string Print(bool[,] table)
+        {
+            string r = string.Empty;
+            int x = table.GetLength(0);
+            int y = table.GetLength(1);
+            for (int j = 0; j < x; j++, r += Environment.NewLine)
+                for (int k = 0; k < y; k++, r += " ")
+                    r += ($"{Convert.ToByte(table[j, k])}");
+            r += Environment.NewLine;
+            return r;
+        }
     }
 }
